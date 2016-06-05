@@ -37,10 +37,16 @@ begin
 		    burstCount	<= X"01";
 		    state	<= waitForValid;
 		    LEDs(7 downto 6)	<= B"00";
+		    ctr	    <= X"017D_7840";
 		when waitForValid =>
 		    LEDs(7 downto 6)	<= B"01";
-		    if( dataValid = '1' ) then
-			state <= sample;
+		    if( ctr = X"0000_0000") then
+			state <= init;
+		    else
+			ctr <= ctr - X"1";
+			if( dataValid = '1' ) then
+			    state <= sample;
+			end if;
 		    end if;
 		when sample=>
 		    LEDs(7 downto 6)	<= B"10";

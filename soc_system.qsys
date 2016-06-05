@@ -1021,4 +1021,6 @@
    end="intr_capturer_0.reset_sink" />
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
  <interconnectRequirement for="$system" name="qsys_mm.maxAdditionalLatency" value="1" />
+ <interconnectRequirement for="hps_0.f2h_axi_slave" name="qsys_mm.security" value="NON_SECURE" />
+ <interconnectRequirement for="hps_0.f2h_sdram0_data" name="qsys_mm.security" value="SECURE" />
 </system>

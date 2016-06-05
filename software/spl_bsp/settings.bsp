@@ -2,10 +2,10 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>spl</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Jun 4, 2016 5:17:38 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1465053458939</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>Jun 5, 2016 3:37:03 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1465133823680</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>./</BspGeneratedLocation>
-        <BspSettingsFile>/home/mathias/Downloads/DE0-Nano-SoC_v.1.1.0_SystemCD/Demonstrations/SoC_FPGA/my_first_hps-fpga/fpga-rtl/software/spl_bsp/settings.bsp</BspSettingsFile>
+        <BspSettingsFile>/home/mathias/Projects/TestBridges/software/spl_bsp/settings.bsp</BspSettingsFile>
         <HpsSettingsPath>../../hps_isw_handoff/soc_system_hps_0</HpsSettingsPath>
         <JdiFile>default</JdiFile>
         <Cpu xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
@@ -266,7 +266,7 @@
                 <SettingName>spl.boot.FAT_SUPPORT</SettingName>
                 <Identifier>none</Identifier>
                 <Type>Boolean</Type>
-                <Value>0</Value>
+                <Value>1</Value>
                 <DefaultValue>0</DefaultValue>
                 <DestinationFile>public_mk_define</DestinationFile>
                 <Description>Enable FAT partition support when booting from SDMMC.</Description>
