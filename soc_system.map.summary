@@ -1,4 +1,4 @@
-Analysis & Synthesis Status : Failed - Sun Jun  5 13:37:08 2016
+Analysis & Synthesis Status : Successful - Sun Jun  5 14:07:12 2016
 Quartus Prime Version : 16.0.0 Build 211 04/27/2016 SJ Lite Edition
 Revision Name : soc_system
 Top-level Entity Name : ghrd
@@ -8,5 +8,10 @@ Total registers : N/A until Partition Merge
 Total pins : N/A until Partition Merge
 Total virtual pins : N/A until Partition Merge
 Total block memory bits : N/A until Partition Merge
+Total DSP Blocks : N/A until Partition Merge
+Total HSSI RX PCSs : N/A until Partition Merge
+Total HSSI PMA RX Deserializers : N/A until Partition Merge
+Total HSSI TX PCSs : N/A until Partition Merge
+Total HSSI PMA TX Serializers : N/A until Partition Merge
 Total PLLs : N/A until Partition Merge
 Total DLLs : N/A until Partition Merge

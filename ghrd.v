@@ -160,7 +160,6 @@ module ghrd(
 
 
  soc_system u0 (
-      .pio_led_external_connection_export(LED),
 		//Clock&Reset
 	  .clk_clk                               (FPGA_CLK1_50 ),                        //  clk.clk
 	  .reset_reset_n                         (1'b1         ),                        //  reset.reset_n
@@ -242,7 +241,7 @@ module ghrd(
 	  .hps_0_h2f_reset_reset_n               (hps_fpga_reset_n),   							//  hps_0_h2f_reset.reset_n
      .hps_0_f2h_warm_reset_req_reset_n      (~hps_warm_reset),      						//  hps_0_f2h_warm_reset_req.reset_n	
 	  .hps_0_f2h_debug_reset_req_reset_n     (~hps_debug_reset),     						//  hps_0_f2h_debug_reset_req.reset_n  
-	  .hps_0_f2h_cold_reset_req_reset_n      (~hps_cold_reset)      		
+	  .hps_0_f2h_cold_reset_req_reset_n      (~hps_cold_reset),     		
 				//  hps_0_f2h_cold_reset_req.reset_n
 				
      .hps_0_f2h_sdram0_clock_clk            (FPGA_CLK1_50),            //      hps_0_f2h_sdram0_clock.clk

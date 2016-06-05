@@ -603,6 +603,8 @@ set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DM[2] -
 set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DM[2] -tag __hps_sdram_p0
 set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DM[3] -tag __hps_sdram_p0
 set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DM[3] -tag __hps_sdram_p0
+set_global_assignment -name QIP_FILE soc_system/synthesis/soc_system.qip
+set_global_assignment -name SOURCE_FILE soc_system/soc_system.cmp
 set_global_assignment -name VHDL_FILE read_sdram.vhd
 set_global_assignment -name VERILOG_FILE ip/edge_detect/altera_edge_detector.v
 set_global_assignment -name VERILOG_FILE ip/debounce/debounce.v
