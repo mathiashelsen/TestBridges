@@ -135,6 +135,13 @@ module soc_system_hps_0 #(
 		output wire         f2h_sdram0_READDATAVALID, //                    .readdatavalid
 		input  wire         f2h_sdram0_READ,          //                    .read
 		input  wire         f2h_sdram0_clk,           //    f2h_sdram0_clock.clk
+		input  wire [28:0]  f2h_sdram1_ADDRESS,       //     f2h_sdram1_data.address
+		input  wire [7:0]   f2h_sdram1_BURSTCOUNT,    //                    .burstcount
+		output wire         f2h_sdram1_WAITREQUEST,   //                    .waitrequest
+		input  wire [63:0]  f2h_sdram1_WRITEDATA,     //                    .writedata
+		input  wire [7:0]   f2h_sdram1_BYTEENABLE,    //                    .byteenable
+		input  wire         f2h_sdram1_WRITE,         //                    .write
+		input  wire         f2h_sdram1_clk,           //    f2h_sdram1_clock.clk
 		input  wire [31:0]  f2h_irq_p0,               //            f2h_irq0.irq
 		input  wire [31:0]  f2h_irq_p1,               //            f2h_irq1.irq
 		output wire [14:0]  mem_a,                    //              memory.mem_a
@@ -355,6 +362,13 @@ module soc_system_hps_0 #(
 		.f2h_sdram0_READDATAVALID (f2h_sdram0_READDATAVALID), //                    .readdatavalid
 		.f2h_sdram0_READ          (f2h_sdram0_READ),          //                    .read
 		.f2h_sdram0_clk           (f2h_sdram0_clk),           //    f2h_sdram0_clock.clk
+		.f2h_sdram1_ADDRESS       (f2h_sdram1_ADDRESS),       //     f2h_sdram1_data.address
+		.f2h_sdram1_BURSTCOUNT    (f2h_sdram1_BURSTCOUNT),    //                    .burstcount
+		.f2h_sdram1_WAITREQUEST   (f2h_sdram1_WAITREQUEST),   //                    .waitrequest
+		.f2h_sdram1_WRITEDATA     (f2h_sdram1_WRITEDATA),     //                    .writedata
+		.f2h_sdram1_BYTEENABLE    (f2h_sdram1_BYTEENABLE),    //                    .byteenable
+		.f2h_sdram1_WRITE         (f2h_sdram1_WRITE),         //                    .write
+		.f2h_sdram1_clk           (f2h_sdram1_clk),           //    f2h_sdram1_clock.clk
 		.f2h_irq_p0               (f2h_irq_p0),               //            f2h_irq0.irq
 		.f2h_irq_p1               (f2h_irq_p1)                //            f2h_irq1.irq
 	);

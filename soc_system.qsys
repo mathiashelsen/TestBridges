@@ -112,7 +112,23 @@
          type = "String";
       }
    }
-   element pio_led
+   element pio_fpga2hps
+   {
+      datum _sortIndex
+      {
+         value = "9";
+         type = "int";
+      }
+   }
+   element pio_fpga2hps.s1
+   {
+      datum baseAddress
+      {
+         value = "16";
+         type = "String";
+      }
+   }
+   element pio_hps2fpga
    {
       datum _sortIndex
       {
@@ -184,6 +200,16 @@
    type="avalon"
    dir="end" />
  <interface
+   name="hps_0_f2h_sdram1_clock"
+   internal="hps_0.f2h_sdram1_clock"
+   type="clock"
+   dir="end" />
+ <interface
+   name="hps_0_f2h_sdram1_data"
+   internal="hps_0.f2h_sdram1_data"
+   type="avalon"
+   dir="end" />
+ <interface
    name="hps_0_f2h_stm_hw_events"
    internal="hps_0.f2h_stm_hw_events"
    type="conduit"
@@ -202,8 +228,13 @@
  <interface name="hps_0_hps_io" internal="hps_0.hps_io" type="conduit" dir="end" />
  <interface name="memory" internal="hps_0.memory" type="conduit" dir="end" />
  <interface
-   name="pio_led_external_connection"
-   internal="pio_led.external_connection"
+   name="pio_fpga2hps_external_connection"
+   internal="pio_fpga2hps.external_connection"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="pio_hps2fpga_external_connection"
+   internal="pio_hps2fpga.external_connection"
    type="conduit"
    dir="end" />
  <interface name="reset" internal="clk_0.clk_in_reset" type="reset" dir="end" />
@@ -325,7 +356,7 @@
   <parameter name="EXTRA_SETTINGS" value="" />
   <parameter name="F2H_AXI_CLOCK_FREQ" value="50000000" />
   <parameter name="F2H_SDRAM0_CLOCK_FREQ" value="0" />
-  <parameter name="F2H_SDRAM1_CLOCK_FREQ" value="100" />
+  <parameter name="F2H_SDRAM1_CLOCK_FREQ" value="0" />
   <parameter name="F2H_SDRAM2_CLOCK_FREQ" value="100" />
   <parameter name="F2H_SDRAM3_CLOCK_FREQ" value="100" />
   <parameter name="F2H_SDRAM4_CLOCK_FREQ" value="100" />
@@ -337,8 +368,8 @@
   <parameter name="F2SCLK_SDRAMCLK_Enable" value="false" />
   <parameter name="F2SCLK_SDRAMCLK_FREQ" value="0" />
   <parameter name="F2SCLK_WARMRST_Enable" value="true" />
-  <parameter name="F2SDRAM_Type" value="Avalon-MM Read-Only" />
-  <parameter name="F2SDRAM_Width" value="64" />
+  <parameter name="F2SDRAM_Type">Avalon-MM Read-Only,Avalon-MM Write-Only</parameter>
+  <parameter name="F2SDRAM_Width" value="64,64" />
   <parameter name="F2SINTERRUPT_Enable" value="true" />
   <parameter name="F2S_Width" value="3" />
   <parameter name="FIX_READ_LATENCY" value="8" />
@@ -830,7 +861,29 @@
   <parameter name="useShallowMemBlocks" value="false" />
   <parameter name="writable" value="true" />
  </module>
- <module name="pio_led" kind="altera_avalon_pio" version="16.0" enabled="1">
+ <module
+   name="pio_fpga2hps"
+   kind="altera_avalon_pio"
+   version="16.0"
+   enabled="1">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="true" />
+  <parameter name="clockRate" value="50000000" />
+  <parameter name="direction" value="Input" />
+  <parameter name="edgeType" value="RISING" />
+  <parameter name="generateIRQ" value="false" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="32" />
+ </module>
+ <module
+   name="pio_hps2fpga"
+   kind="altera_avalon_pio"
+   version="16.0"
+   enabled="1">
   <parameter name="bitClearingEdgeCapReg" value="false" />
   <parameter name="bitModifyingOutReg" value="false" />
   <parameter name="captureEdge" value="false" />
@@ -842,7 +895,7 @@
   <parameter name="resetValue" value="255" />
   <parameter name="simDoTestBenchWiring" value="false" />
   <parameter name="simDrivenValue" value="0" />
-  <parameter name="width" value="8" />
+  <parameter name="width" value="32" />
  </module>
  <module
    name="sysid_qsys"
@@ -882,9 +935,18 @@
    kind="avalon"
    version="16.0"
    start="hps_0.h2f_lw_axi_master"
-   end="pio_led.s1">
+   end="pio_hps2fpga.s1">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x0000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="16.0"
+   start="hps_0.h2f_lw_axi_master"
+   end="pio_fpga2hps.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0010" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -944,7 +1006,8 @@
    start="clk_0.clk"
    end="fpga_only_master.clk" />
  <connection kind="clock" version="16.0" start="clk_0.clk" end="jtag_uart.clk" />
- <connection kind="clock" version="16.0" start="clk_0.clk" end="pio_led.clk" />
+ <connection kind="clock" version="16.0" start="clk_0.clk" end="pio_hps2fpga.clk" />
+ <connection kind="clock" version="16.0" start="clk_0.clk" end="pio_fpga2hps.clk" />
  <connection
    kind="clock"
    version="16.0"
@@ -1008,7 +1071,12 @@
    kind="reset"
    version="16.0"
    start="clk_0.clk_reset"
-   end="pio_led.reset" />
+   end="pio_hps2fpga.reset" />
+ <connection
+   kind="reset"
+   version="16.0"
+   start="clk_0.clk_reset"
+   end="pio_fpga2hps.reset" />
  <connection
    kind="reset"
    version="16.0"
@@ -1023,4 +1091,5 @@
  <interconnectRequirement for="$system" name="qsys_mm.maxAdditionalLatency" value="1" />
  <interconnectRequirement for="hps_0.f2h_axi_slave" name="qsys_mm.security" value="NON_SECURE" />
  <interconnectRequirement for="hps_0.f2h_sdram0_data" name="qsys_mm.security" value="SECURE" />
+ <interconnectRequirement for="hps_0.f2h_sdram1_data" name="qsys_mm.security" value="SECURE" />
 </system>

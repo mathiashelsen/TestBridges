@@ -144,6 +144,12 @@ module ghrd(
   wire sdram0_data_read;
   wire sdram0_clock_clk;
   
+  wire [27:0] sdram1_data_address;
+  wire sdram1_waitRequest;
+  wire sdram1_write;
+  wire [31:0] sdram1_data;
+  	
+  
 //	input	[7:0]	hps_0_f2h_sdram0_data_burstcount;
 //	output		hps_0_f2h_sdram0_data_waitrequest;
 //	output	[63:0]	hps_0_f2h_sdram0_data_readdata;
@@ -250,7 +256,17 @@ module ghrd(
      .hps_0_f2h_sdram0_data_waitrequest     (sdram0_data_waitrequest),     //                            .waitrequest
      .hps_0_f2h_sdram0_data_readdata        (sdram0_data_readdata),        //                            .readdata
      .hps_0_f2h_sdram0_data_readdatavalid   (sdram0_data_readdatavalid),   //                            .readdatavalid
-     .hps_0_f2h_sdram0_data_read            (sdram0_data_read)            //   
+     .hps_0_f2h_sdram0_data_read            (sdram0_data_read),      
+	  //   
+	  //.pio_hps2fpga_external_connection_export (<connected-to-pio_hps2fpga_external_connection_export>), // pio_hps2fpga_external_connection.export
+     .hps_0_f2h_sdram1_clock_clk              (FPGA_CLK1_50),              //           hps_0_f2h_sdram1_clock.clk
+     .hps_0_f2h_sdram1_data_address           (sdram1_data_address),           //            hps_0_f2h_sdram1_data.address
+     .hps_0_f2h_sdram1_data_burstcount        (8'h01),        //                                 .burstcount
+     .hps_0_f2h_sdram1_data_waitrequest       (sdram1_waitRequest),       //                                 .waitrequest
+     .hps_0_f2h_sdram1_data_writedata         (sdram1_data),         //                                 .writedata
+     .hps_0_f2h_sdram1_data_byteenable        (4'b1111),        //                                 .byteenable
+     .hps_0_f2h_sdram1_data_write             (sdram1_write)             //                                 .write
+     //.pio_fpga2hps_external_connection_export (<connected-to-pio_fpga2hps_external_connection_export>)  // pio_fpga2hps_external_connection.export
  );
 
  read_sdram basicReadTest (
@@ -265,12 +281,16 @@ module ghrd(
 		  .LEDs(LED)
  );
  
-	//input	[28:0]	hps_0_f2h_sdram0_data_address;
-//	input	[7:0]	hps_0_f2h_sdram0_data_burstcount;
-//	output		hps_0_f2h_sdram0_data_waitrequest;
-//	output	[63:0]	hps_0_f2h_sdram0_data_readdata;
-//	output		hps_0_f2h_sdram0_data_readdatavalid;
-//	input		hps_0_f2h_sdram0_data_read;
+
+write_sdram basicWriteTest(
+	.clk(FPGA_CLK1_50),
+	.rst(hps_cold_reset),
+	.address(sdram1_data_address),
+	.waitRequest(sdram1_waitRequest),
+	.data(sdram1_data),
+	.write(sdram1_write)
+);
+
  
 // Source/Probe megawizard instance
 hps_reset hps_reset_inst (

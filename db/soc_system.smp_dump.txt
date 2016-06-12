@@ -17,6 +17,13 @@ state.IDLE 0 0 0
 state.ARM 1 0 1 
 state.CAPT 1 1 0 
 
+State Machine - |ghrd|write_sdram:basicWriteTest|state
+Name state.idle state.writeData state.waitForValid state.init 
+state.init 0 0 0 0 
+state.waitForValid 0 0 1 1 
+state.writeData 0 1 0 1 
+state.idle 1 0 0 1 
+
 State Machine - |ghrd|read_sdram:basicReadTest|state
 Name state.reset state.sample state.waitForValid state.init 
 state.init 0 0 0 0 
@@ -24,7 +31,14 @@ state.waitForValid 0 0 1 1
 state.sample 0 1 0 1 
 state.reset 1 0 0 1 
 
-State Machine - |ghrd|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pio_led_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+State Machine - |ghrd|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pio_fpga2hps_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 0 
+state.ST_COMP_TRANS 1 0 0 1 
+state.ST_UNCOMP_TRANS 1 0 1 0 
+state.ST_UNCOMP_WR_SUBBURST 1 1 0 0 
+
+State Machine - |ghrd|soc_system:u0|soc_system_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:pio_hps2fpga_s1_burst_adapter|altera_merlin_burst_adapter_13_1:altera_merlin_burst_adapter_13_1.burst_adapter|state
 Name state.ST_IDLE state.ST_UNCOMP_WR_SUBBURST state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
 state.ST_IDLE 0 0 0 0 
 state.ST_COMP_TRANS 1 0 0 1 

@@ -77,8 +77,16 @@ module soc_system (
 	memory_mem_odt,
 	memory_mem_dm,
 	memory_oct_rzqin,
-	pio_led_external_connection_export,
-	reset_reset_n);	
+	pio_hps2fpga_external_connection_export,
+	reset_reset_n,
+	hps_0_f2h_sdram1_clock_clk,
+	hps_0_f2h_sdram1_data_address,
+	hps_0_f2h_sdram1_data_burstcount,
+	hps_0_f2h_sdram1_data_waitrequest,
+	hps_0_f2h_sdram1_data_writedata,
+	hps_0_f2h_sdram1_data_byteenable,
+	hps_0_f2h_sdram1_data_write,
+	pio_fpga2hps_external_connection_export);	
 
 	input		clk_clk;
 	input		hps_0_f2h_cold_reset_req_reset_n;
@@ -157,6 +165,14 @@ module soc_system (
 	output		memory_mem_odt;
 	output	[3:0]	memory_mem_dm;
 	input		memory_oct_rzqin;
-	output	[7:0]	pio_led_external_connection_export;
+	output	[31:0]	pio_hps2fpga_external_connection_export;
 	input		reset_reset_n;
+	input		hps_0_f2h_sdram1_clock_clk;
+	input	[28:0]	hps_0_f2h_sdram1_data_address;
+	input	[7:0]	hps_0_f2h_sdram1_data_burstcount;
+	output		hps_0_f2h_sdram1_data_waitrequest;
+	input	[63:0]	hps_0_f2h_sdram1_data_writedata;
+	input	[7:0]	hps_0_f2h_sdram1_data_byteenable;
+	input		hps_0_f2h_sdram1_data_write;
+	input	[31:0]	pio_fpga2hps_external_connection_export;
 endmodule
