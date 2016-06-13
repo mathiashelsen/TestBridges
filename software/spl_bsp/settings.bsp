@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>spl</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Jun 12, 2016 5:01:17 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1465743677599</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>Jun 13, 2016 5:24:59 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1465831499499</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>./</BspGeneratedLocation>
         <BspSettingsFile>/home/mathias/Projects/TestBridges/software/spl_bsp/settings.bsp</BspSettingsFile>
         <HpsSettingsPath>../../hps_isw_handoff/soc_system_hps_0</HpsSettingsPath>
