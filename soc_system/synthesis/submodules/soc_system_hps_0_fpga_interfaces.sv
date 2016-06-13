@@ -142,20 +142,20 @@ module soc_system_hps_0_fpga_interfaces(
  ,input wire [1 - 1 : 0 ] h2f_RVALID
  ,output wire [1 - 1 : 0 ] h2f_RREADY
 // f2h_sdram0_data
- ,input wire [29 - 1 : 0 ] f2h_sdram0_ADDRESS
+ ,input wire [30 - 1 : 0 ] f2h_sdram0_ADDRESS
  ,input wire [8 - 1 : 0 ] f2h_sdram0_BURSTCOUNT
  ,output wire [1 - 1 : 0 ] f2h_sdram0_WAITREQUEST
- ,output wire [64 - 1 : 0 ] f2h_sdram0_READDATA
+ ,output wire [32 - 1 : 0 ] f2h_sdram0_READDATA
  ,output wire [1 - 1 : 0 ] f2h_sdram0_READDATAVALID
  ,input wire [1 - 1 : 0 ] f2h_sdram0_READ
 // f2h_sdram0_clock
  ,input wire [1 - 1 : 0 ] f2h_sdram0_clk
 // f2h_sdram1_data
- ,input wire [29 - 1 : 0 ] f2h_sdram1_ADDRESS
+ ,input wire [30 - 1 : 0 ] f2h_sdram1_ADDRESS
  ,input wire [8 - 1 : 0 ] f2h_sdram1_BURSTCOUNT
  ,output wire [1 - 1 : 0 ] f2h_sdram1_WAITREQUEST
- ,input wire [64 - 1 : 0 ] f2h_sdram1_WRITEDATA
- ,input wire [8 - 1 : 0 ] f2h_sdram1_BYTEENABLE
+ ,input wire [32 - 1 : 0 ] f2h_sdram1_WRITEDATA
+ ,input wire [4 - 1 : 0 ] f2h_sdram1_BYTEENABLE
  ,input wire [1 - 1 : 0 ] f2h_sdram1_WRITE
 // f2h_sdram1_clock
  ,input wire [1 - 1 : 0 ] f2h_sdram1_clk
@@ -608,21 +608,21 @@ cyclonev_hps_interface_fpga2sdram f2sdram(
  .cmd_data_1({
     18'b000000000000000000 // 59:42
    ,f2h_sdram1_BURSTCOUNT[7:0] // 41:34
-   ,3'b000 // 33:31
-   ,f2h_sdram1_ADDRESS[28:0] // 30:2
+   ,2'b00 // 33:32
+   ,f2h_sdram1_ADDRESS[29:0] // 31:2
    ,intermediate[10:10] // 1:1
    ,1'b0 // 0:0
   })
 ,.cmd_data_0({
     18'b000000000000000000 // 59:42
    ,f2h_sdram0_BURSTCOUNT[7:0] // 41:34
-   ,3'b000 // 33:31
-   ,f2h_sdram0_ADDRESS[28:0] // 30:2
+   ,2'b00 // 33:32
+   ,f2h_sdram0_ADDRESS[29:0] // 31:2
    ,1'b0 // 1:1
    ,intermediate[3:3] // 0:0
   })
 ,.cfg_port_width({
-    12'b000000000101 // 11:0
+    12'b000000000000 // 11:0
   })
 ,.rd_valid_0({
     f2h_sdram0_READDATAVALID[0:0] // 0:0
@@ -634,10 +634,10 @@ cyclonev_hps_interface_fpga2sdram f2sdram(
     12'b000000000110 // 11:0
   })
 ,.wr_data_0({
-    2'b00 // 89:88
-   ,f2h_sdram1_BYTEENABLE[7:0] // 87:80
-   ,16'b0000000000000000 // 79:64
-   ,f2h_sdram1_WRITEDATA[63:0] // 63:0
+    6'b000000 // 89:84
+   ,f2h_sdram1_BYTEENABLE[3:0] // 83:80
+   ,48'b000000000000000000000000000000000000000000000000 // 79:32
+   ,f2h_sdram1_WRITEDATA[31:0] // 31:0
   })
 ,.cfg_rfifo_cport_map({
     16'b0000000000000000 // 15:0
@@ -679,7 +679,7 @@ cyclonev_hps_interface_fpga2sdram f2sdram(
     intermediate[4:4] // 0:0
   })
 ,.rd_data_0({
-    f2h_sdram0_READDATA[63:0] // 63:0
+    f2h_sdram0_READDATA[31:0] // 31:0
   })
 ,.cfg_axi_mm_select({
     6'b000000 // 5:0

@@ -32,7 +32,7 @@ begin
 	elsif( clk'event and clk = '1' ) then
 	    case state is
 		when init =>
-		    address(27 downto 0) <= X"FFF_AAAA";
+		    address(27 downto 0) <= X"EE4_0000";
 		    read	<= '1';
 		    burstCount	<= X"01";
 		    state	<= waitForValid;

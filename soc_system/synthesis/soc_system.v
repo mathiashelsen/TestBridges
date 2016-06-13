@@ -8,18 +8,18 @@ module soc_system (
 		input  wire        hps_0_f2h_cold_reset_req_reset_n,        //         hps_0_f2h_cold_reset_req.reset_n
 		input  wire        hps_0_f2h_debug_reset_req_reset_n,       //        hps_0_f2h_debug_reset_req.reset_n
 		input  wire        hps_0_f2h_sdram0_clock_clk,              //           hps_0_f2h_sdram0_clock.clk
-		input  wire [28:0] hps_0_f2h_sdram0_data_address,           //            hps_0_f2h_sdram0_data.address
+		input  wire [29:0] hps_0_f2h_sdram0_data_address,           //            hps_0_f2h_sdram0_data.address
 		input  wire [7:0]  hps_0_f2h_sdram0_data_burstcount,        //                                 .burstcount
 		output wire        hps_0_f2h_sdram0_data_waitrequest,       //                                 .waitrequest
-		output wire [63:0] hps_0_f2h_sdram0_data_readdata,          //                                 .readdata
+		output wire [31:0] hps_0_f2h_sdram0_data_readdata,          //                                 .readdata
 		output wire        hps_0_f2h_sdram0_data_readdatavalid,     //                                 .readdatavalid
 		input  wire        hps_0_f2h_sdram0_data_read,              //                                 .read
 		input  wire        hps_0_f2h_sdram1_clock_clk,              //           hps_0_f2h_sdram1_clock.clk
-		input  wire [28:0] hps_0_f2h_sdram1_data_address,           //            hps_0_f2h_sdram1_data.address
+		input  wire [29:0] hps_0_f2h_sdram1_data_address,           //            hps_0_f2h_sdram1_data.address
 		input  wire [7:0]  hps_0_f2h_sdram1_data_burstcount,        //                                 .burstcount
 		output wire        hps_0_f2h_sdram1_data_waitrequest,       //                                 .waitrequest
-		input  wire [63:0] hps_0_f2h_sdram1_data_writedata,         //                                 .writedata
-		input  wire [7:0]  hps_0_f2h_sdram1_data_byteenable,        //                                 .byteenable
+		input  wire [31:0] hps_0_f2h_sdram1_data_writedata,         //                                 .writedata
+		input  wire [3:0]  hps_0_f2h_sdram1_data_byteenable,        //                                 .byteenable
 		input  wire        hps_0_f2h_sdram1_data_write,             //                                 .write
 		input  wire [27:0] hps_0_f2h_stm_hw_events_stm_hwevents,    //          hps_0_f2h_stm_hw_events.stm_hwevents
 		input  wire        hps_0_f2h_warm_reset_req_reset_n,        //         hps_0_f2h_warm_reset_req.reset_n

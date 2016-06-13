@@ -55,8 +55,8 @@ agreement for further details.
 	(port
 		(pt 0 232)
 		(input)
-		(text "hps_0_f2h_sdram0_data_address[28..0]" (rect 0 0 165 12)(font "Arial" (font_size 8)))
-		(text "hps_0_f2h_sdram0_data_address[28..0]" (rect 4 221 220 232)(font "Arial" (font_size 8)))
+		(text "hps_0_f2h_sdram0_data_address[29..0]" (rect 0 0 165 12)(font "Arial" (font_size 8)))
+		(text "hps_0_f2h_sdram0_data_address[29..0]" (rect 4 221 220 232)(font "Arial" (font_size 8)))
 		(line (pt 0 232)(pt 272 232)(line_width 3))
 	)
 	(port
@@ -83,8 +83,8 @@ agreement for further details.
 	(port
 		(pt 0 392)
 		(input)
-		(text "hps_0_f2h_sdram1_data_address[28..0]" (rect 0 0 164 12)(font "Arial" (font_size 8)))
-		(text "hps_0_f2h_sdram1_data_address[28..0]" (rect 4 381 220 392)(font "Arial" (font_size 8)))
+		(text "hps_0_f2h_sdram1_data_address[29..0]" (rect 0 0 164 12)(font "Arial" (font_size 8)))
+		(text "hps_0_f2h_sdram1_data_address[29..0]" (rect 4 381 220 392)(font "Arial" (font_size 8)))
 		(line (pt 0 392)(pt 272 392)(line_width 3))
 	)
 	(port
@@ -97,15 +97,15 @@ agreement for further details.
 	(port
 		(pt 0 440)
 		(input)
-		(text "hps_0_f2h_sdram1_data_writedata[63..0]" (rect 0 0 166 12)(font "Arial" (font_size 8)))
-		(text "hps_0_f2h_sdram1_data_writedata[63..0]" (rect 4 429 232 440)(font "Arial" (font_size 8)))
+		(text "hps_0_f2h_sdram1_data_writedata[31..0]" (rect 0 0 165 12)(font "Arial" (font_size 8)))
+		(text "hps_0_f2h_sdram1_data_writedata[31..0]" (rect 4 429 232 440)(font "Arial" (font_size 8)))
 		(line (pt 0 440)(pt 272 440)(line_width 3))
 	)
 	(port
 		(pt 0 456)
 		(input)
-		(text "hps_0_f2h_sdram1_data_byteenable[7..0]" (rect 0 0 169 12)(font "Arial" (font_size 8)))
-		(text "hps_0_f2h_sdram1_data_byteenable[7..0]" (rect 4 445 232 456)(font "Arial" (font_size 8)))
+		(text "hps_0_f2h_sdram1_data_byteenable[3..0]" (rect 0 0 169 12)(font "Arial" (font_size 8)))
+		(text "hps_0_f2h_sdram1_data_byteenable[3..0]" (rect 4 445 232 456)(font "Arial" (font_size 8)))
 		(line (pt 0 456)(pt 272 456)(line_width 3))
 	)
 	(port
@@ -237,8 +237,8 @@ agreement for further details.
 	(port
 		(pt 0 280)
 		(output)
-		(text "hps_0_f2h_sdram0_data_readdata[63..0]" (rect 0 0 167 12)(font "Arial" (font_size 8)))
-		(text "hps_0_f2h_sdram0_data_readdata[63..0]" (rect 4 269 226 280)(font "Arial" (font_size 8)))
+		(text "hps_0_f2h_sdram0_data_readdata[31..0]" (rect 0 0 166 12)(font "Arial" (font_size 8)))
+		(text "hps_0_f2h_sdram0_data_readdata[31..0]" (rect 4 269 226 280)(font "Arial" (font_size 8)))
 		(line (pt 0 280)(pt 272 280)(line_width 3))
 	)
 	(port

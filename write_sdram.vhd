@@ -29,7 +29,7 @@ begin
 	elsif( clk'event and clk = '1' ) then
 	    case state is
 		when init =>
-		    address(27 downto 0) <= X"FFF_AAAA";
+		    address(27 downto 0) <= X"EE4_0000";
 		    write   <= '0';
 		    state   <= waitForValid;
 		    ctr	    <= X"017D_7840";
@@ -38,9 +38,7 @@ begin
 			state <= init;
 		    else
 			ctr <= ctr - X"1";
-			if( waitRequest = '0' ) then
-			    state <= writeData;
-			end if;
+			state <= writeData;
 		    end if;
 		when writeData =>
 		    write   <= '1';
@@ -51,7 +49,7 @@ begin
 		    end if;
 		when idle =>
 		    write	<= '0';
-		    dataCache	<= dataCache + X"1";
+		    
 		    if( ctr = X"0000_0000" ) then
 			state <= init;
 		    else 
