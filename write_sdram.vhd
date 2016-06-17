@@ -9,7 +9,7 @@ entity write_sdram is
 	rst		:   in std_logic;
 	address		:   out std_logic_vector(28 downto 0);
 	waitRequest	:   in std_logic;
-	data		:   out std_logic_vector(31 downto 0);
+	data		:   out std_logic_vector(63 downto 0);
 	write		:   out std_logic
     );
 end write_sdram;
@@ -29,7 +29,7 @@ begin
 	elsif( clk'event and clk = '1' ) then
 	    case state is
 		when init =>
-		    address(27 downto 0) <= X"EE4_0000";
+		    address(27 downto 0) <= X"772_0000";
 		    write   <= '0';
 		    state   <= waitForValid;
 		    ctr	    <= X"017D_7840";
@@ -42,7 +42,7 @@ begin
 		    end if;
 		when writeData =>
 		    write   <= '1';
-		    data    <= dataCache;
+		    data    <= dataCache & (dataCache srl 1);
 		    ctr	    <= X"017D_7840";
 		    if( waitRequest = '0' ) then
 			state   <= idle;

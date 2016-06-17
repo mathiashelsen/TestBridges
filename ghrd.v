@@ -147,7 +147,7 @@ module ghrd(
   wire [27:0] sdram1_data_address;
   wire sdram1_waitRequest;
   wire sdram1_write;
-  wire [31:0] sdram1_data;
+  wire [63:0] sdram1_data;
   	
   
 //	input	[7:0]	hps_0_f2h_sdram0_data_burstcount;
