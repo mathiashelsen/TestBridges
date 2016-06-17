@@ -99,11 +99,11 @@ module soc_system (
 	output		hps_0_f2h_sdram0_data_readdatavalid;
 	input		hps_0_f2h_sdram0_data_read;
 	input		hps_0_f2h_sdram1_clock_clk;
-	input	[29:0]	hps_0_f2h_sdram1_data_address;
+	input	[28:0]	hps_0_f2h_sdram1_data_address;
 	input	[7:0]	hps_0_f2h_sdram1_data_burstcount;
 	output		hps_0_f2h_sdram1_data_waitrequest;
-	input	[31:0]	hps_0_f2h_sdram1_data_writedata;
-	input	[3:0]	hps_0_f2h_sdram1_data_byteenable;
+	input	[63:0]	hps_0_f2h_sdram1_data_writedata;
+	input	[7:0]	hps_0_f2h_sdram1_data_byteenable;
 	input		hps_0_f2h_sdram1_data_write;
 	input	[27:0]	hps_0_f2h_stm_hw_events_stm_hwevents;
 	input		hps_0_f2h_warm_reset_req_reset_n;

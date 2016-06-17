@@ -3,6 +3,7 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 use ieee.numeric_std.all;
 
+
 entity write_sdram is
     port(
 	clk		:   in std_logic;
@@ -42,7 +43,7 @@ begin
 		    end if;
 		when writeData =>
 		    write   <= '1';
-		    data    <= dataCache & (dataCache srl 1);
+		    data    <= dataCache & '0' & dataCache(31 downto 1);
 		    ctr	    <= X"017D_7840";
 		    if( waitRequest = '0' ) then
 			state   <= idle;

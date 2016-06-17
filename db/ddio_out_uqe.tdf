@@ -1,5 +1,5 @@
 --altddio_out CBX_DECLARE_ALL_CONNECTED_PORTS="OFF" DEVICE_FAMILY="Cyclone V" INVERT_OUTPUT="OFF" POWER_UP_HIGH="OFF" WIDTH=1 datain_h datain_l dataout outclock
---VERSION_BEGIN 16.0 cbx_altddio_out 2016:04:20:18:35:29:SJ cbx_cycloneii 2016:04:20:18:35:29:SJ cbx_maxii 2016:04:20:18:35:29:SJ cbx_mgl 2016:04:20:19:36:45:SJ cbx_stratix 2016:04:20:18:35:29:SJ cbx_stratixii 2016:04:20:18:35:29:SJ cbx_stratixiii 2016:04:20:18:35:29:SJ cbx_stratixv 2016:04:20:18:35:29:SJ cbx_util_mgl 2016:04:20:18:35:29:SJ  VERSION_END
+--VERSION_BEGIN 16.0 cbx_altddio_out 2016:04:27:18:05:34:SJ cbx_cycloneii 2016:04:27:18:05:34:SJ cbx_maxii 2016:04:27:18:05:34:SJ cbx_mgl 2016:04:27:18:06:48:SJ cbx_stratix 2016:04:27:18:05:34:SJ cbx_stratixii 2016:04:27:18:05:34:SJ cbx_stratixiii 2016:04:27:18:05:34:SJ cbx_stratixv 2016:04:27:18:05:34:SJ cbx_util_mgl 2016:04:27:18:05:34:SJ  VERSION_END
 
 
 -- Copyright (C) 1991-2016 Altera Corporation. All rights reserved.

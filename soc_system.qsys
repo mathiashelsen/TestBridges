@@ -369,7 +369,7 @@
   <parameter name="F2SCLK_SDRAMCLK_FREQ" value="0" />
   <parameter name="F2SCLK_WARMRST_Enable" value="true" />
   <parameter name="F2SDRAM_Type">Avalon-MM Read-Only,Avalon-MM Write-Only</parameter>
-  <parameter name="F2SDRAM_Width" value="32,32" />
+  <parameter name="F2SDRAM_Width" value="32,64" />
   <parameter name="F2SINTERRUPT_Enable" value="true" />
   <parameter name="F2S_Width" value="3" />
   <parameter name="FIX_READ_LATENCY" value="8" />

@@ -11,11 +11,11 @@
 			hps_0_f2h_sdram0_data_readdatavalid     : out   std_logic;                                        -- readdatavalid
 			hps_0_f2h_sdram0_data_read              : in    std_logic                     := 'X';             -- read
 			hps_0_f2h_sdram1_clock_clk              : in    std_logic                     := 'X';             -- clk
-			hps_0_f2h_sdram1_data_address           : in    std_logic_vector(29 downto 0) := (others => 'X'); -- address
+			hps_0_f2h_sdram1_data_address           : in    std_logic_vector(28 downto 0) := (others => 'X'); -- address
 			hps_0_f2h_sdram1_data_burstcount        : in    std_logic_vector(7 downto 0)  := (others => 'X'); -- burstcount
 			hps_0_f2h_sdram1_data_waitrequest       : out   std_logic;                                        -- waitrequest
-			hps_0_f2h_sdram1_data_writedata         : in    std_logic_vector(31 downto 0) := (others => 'X'); -- writedata
-			hps_0_f2h_sdram1_data_byteenable        : in    std_logic_vector(3 downto 0)  := (others => 'X'); -- byteenable
+			hps_0_f2h_sdram1_data_writedata         : in    std_logic_vector(63 downto 0) := (others => 'X'); -- writedata
+			hps_0_f2h_sdram1_data_byteenable        : in    std_logic_vector(7 downto 0)  := (others => 'X'); -- byteenable
 			hps_0_f2h_sdram1_data_write             : in    std_logic                     := 'X';             -- write
 			hps_0_f2h_stm_hw_events_stm_hwevents    : in    std_logic_vector(27 downto 0) := (others => 'X'); -- stm_hwevents
 			hps_0_f2h_warm_reset_req_reset_n        : in    std_logic                     := 'X';             -- reset_n
